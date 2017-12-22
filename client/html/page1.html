@@ -1,0 +1,110 @@
+<template name="page1">
+
+    <div class="row">
+        {{#if currentUser}}
+        <h5 class="center-align"></h5>
+        {{/if}}
+    </div>
+
+    {{#if showCreatePost}}
+    <div class="container">
+        <div class="row">
+            <form class="col s12" id="joke">
+                <div class="row">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="title" type="text" class="validate" required>
+                            <label for="title">Title</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="brief" type="text" class="validate" required>
+                            <label for="brief">Brief</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 l12 m12">
+                            <button class="btn btn-large btn-register waves-effect waves-light col s12 l12 m12" type="submit" name="action">Post your thoughts !
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <a title="close" class="ngl btn-floating  waves-effect waves-light red closeJoke">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </a>
+    </div>
+
+    {{else}}
+
+    <div class="center-align">
+        {{#if currentUser}}
+        <button id="createPost" class="btn btn-large btn-register waves-effect waves-light col s2 l2 m2 ">Create Post</button>
+        {{else}} Please
+        <a href="/login">login</a> to post wonderfull things ! {{/if}}
+    </div>
+
+    {{/if}}
+    <div class="row" style="margin-top: 1%"></div>
+
+    <div class="row">
+        {{#each jokesList}}
+        <div class="col s12 l3">
+            <div class="card blue-grey darken-1 z-depth-3">
+                <div class="card-image">
+                    {{#with imageprofileFind}}
+                    <img src="{{image}}" height="20px" class="btn-floating halfway-fab waves-effect waves-light profile-picf"> {{else}}
+                    <img src="http://res.cloudinary.com/dh5gx0t5p/image/upload/v1495188266/user-profile-bg_hbub9d.jpg" height="20px" class="btn-floating halfway-fab waves-effect waves-light profile-picf"> {{/with}}
+                    <!--<a title="close" class="btn-floating halfway-fab waves-effect waves-light red removePost"><i class="fa fa-times" aria-hidden="true"></i></a>-->
+                </div>
+                <div class="card-content white-text ">
+                    <span class="card-title">{{author}}</span>
+                    <p>{{jokeName}} </p>
+                    <p>{{jokePost}}</p>
+                </div>
+                <div class="card-action">
+                    <div class="right-align">
+                        <span style="float:left;">
+                            <i class="fa fa-comments-o fa-2x cmtClick" aria-hidden="true" style=""></i>{{cmt.length}}
+                        </span>
+                        <i class="fa fa-thumbs-up fa-2x likeClick" aria-hidden="true"></i>{{likeScore}}
+                        <i class="fa fa-thumbs-down fa-2x dislikesClick" aria-hidden="true"></i>{{dislikeScore}}
+                        <i class="fa fa-heart fa-2x loveClick" aria-hidden="true"></i>{{loveScore}}</div>
+                </div>
+
+                <div class="s{{this._id}}  input-field" style="display: none">
+
+                    {{#each cmt}}
+                    <div class="fontColor">
+                        <span class="row">
+                            <span class=" col s1">
+                                {{#with imageFind}}
+                                <img src="{{image}}" alt="profile image" class="circle profile-img" style="width: 165%;"> {{/with}}
+                            </span>
+                            <span class="col s8 ">
+                                <span class="col s12 f">{{#if owner}}ME{{else}}{{username}}{{/if}} {{time}}</span>{{cmt}}</span>
+                            <span>
+                                <i class="fa fa-thumbs-up fa-2x cmtlikeClick" aria-hidden="true"></i>{{likeCount}}</span>
+
+                        </span>
+
+                    </div>
+                    {{/each}}
+                    <form class="cmtSubmit">
+                        <!--<label for="cmttext">Comment</label>-->
+                        <input type="text" rows="4" name="cmttext" style=" width:70%; margin-left:2%" required>
+                        <button class="btn " type="submit">Post</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+
+</template>

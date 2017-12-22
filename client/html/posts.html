@@ -1,0 +1,63 @@
+<template name="jokes">
+
+   <div class="row">
+       {{#each users}}
+
+           <div class="container-fluid">
+               <div id="profile-page-header" class="card z-depth=-5" style="margin-left:10%; margin-right: 10%;">
+                   <div class="card-image waves-effect waves-block waves-light">
+                       <img class="blue-grey darken-1 image2" src="http://res.cloudinary.com/dh5gx0t5p/image/upload/v1495188266/user-profile-bg_hbub9d.jpg" height="200px">
+                   </div>
+                   <figure class="card-profile-image">
+                       {{#with UserImages}}
+                           <img src="{{image}}" alt="profile image" class="circle z-depth-2 responsive-img activator image1 profile-img" style="width: 9%; margin-top: -80px;">
+                       {{else}}
+                           <img src="editUser.png" alt="profile image" class="circle z-depth-2 responsive-img activator image1 profile-img" style="width: 9%; margin-top: -80px;" >
+
+
+                       {{/with}}
+
+
+
+                   </figure>
+                   <div class="card-content">
+                       <div class="row" style="
+    margin-top: -3%;
+">
+                           <div class="col s1 offset-s2 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{username}}</h4>
+                               <p class="medium-small grey-text" style=" margin-top: 17px;">Name</p>
+                           </div>
+                           <div class="col s3 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{emails.[0].address}}</h4>
+                               <p class="medium-small grey-text" style="margin-top: 17px;">Email</p>
+                           </div>
+                           <div class="col s2 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{profile.joinedDate}}</h4>
+                               <p class="medium-small grey-text" style="margin-top: 17px;">Joined On</p>
+                           </div>
+                           <div class="col s1 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{jokeCount}}</h4>
+                               <p class="medium-small grey-text" style="margin-top: 17px;">Total Post</p>
+                           </div>
+                           <div class="col s1 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{profile.likeScore}}</h4>
+                               <p class="medium-small grey-text"><i class="fa fa-thumbs-up  fa-2x " aria-hidden="true"></i></p>
+                           </div>
+                           <div class="col s1 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{profile.unlikeScore}}</h4>
+                               <p class="medium-small grey-text"><i class="fa fa-thumbs-down fa-2x " aria-hidden="true"></i></p>
+                           </div>
+                           <div class="col s1 center-align">
+                               <h4 class="card-title grey-text text-darken-4 cardtitle">{{profile.loveScore}}</h4>
+                               <p class="medium-small grey-text"><i class="fa fa-heart fa-2x " aria-hidden="true"></i></p>
+                           </div>
+
+                       </div>
+                   </div>
+
+               </div></div>
+       {{/each}}
+   </div>
+
+</template>
