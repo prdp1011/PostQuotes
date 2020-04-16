@@ -1,9 +1,14 @@
 {
   "name": "NewApp",
   "private": true,
+  "engines": {
+      "node": "13.9.0",
+      "npm": "6.13.7"
+   },
   "scripts": {
-    "start": "meteor run"
-  },
+    "heroku-prebuild": "cd bundle/programs/server && npm install -q",
+    "start": "cd bundle && node main.js"
+  }
   "dependencies": {
     "babel-runtime": "^6.20.0",
     "bcrypt": "^1.0.3",
