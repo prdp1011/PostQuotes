@@ -3,11 +3,11 @@
   "private": true,
   "engines": {
       "node": "13.9.0",
-      "npm": "6.13.7"
+      "npm": "6.13.7",
+      "meteor": "1.5.1"
    },
   "scripts": {
-    "heroku-prebuild": "cd bundle/programs/server && npm install -q",
-    "start": "cd bundle && node main.js"
+    "start": "meteor run"
   },
   "dependencies": {
     "babel-runtime": "^6.20.0",
