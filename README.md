@@ -20,3 +20,6 @@ $ npm install
 $ Meteor
 
 ```
+
+![](intro.gif)
+
