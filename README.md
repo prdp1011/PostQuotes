@@ -7,6 +7,8 @@ This project to post any messages [Post thoughts].
 ### Introduction
 Provides fast, reliable and extensible starter for the development of post any messages.
 
+![](intro.gif)
+
 ### How to start
 **Note** that this seed project requires  **node >=v6.9.0 and npm >=3**.
 
@@ -21,5 +23,4 @@ $ Meteor
 
 ```
 
-![](intro.gif)
 
