@@ -1,4 +1,4 @@
-# PostYourThoughts
+# Post Quotes
 
 Simple  App built using Meteor and Materialize Css
 
